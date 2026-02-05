@@ -18,6 +18,7 @@ namespace ReSplit.Models.Form
         public string DeltaForegroundColor { get; set { field = value; OnPropertyChanged(); } } = "#FFFFC000";
         public bool IsActive { get; set { field = value; if (value) BackgroundColor = "#A00000E0"; if (!value) BackgroundColor = "#00000000"; OnPropertyChanged(); } } = false;
         public TimeSpan Time { get; set { field = value; OnPropertyChanged(); } } = TimeSpan.Zero;
+        public TimeSpan DeltaTime { get; set { field = value; OnPropertyChanged(); } } = TimeSpan.Zero;
         public TimeSpan NewTime { get; set { field = value; OnPropertyChanged(); } } = TimeSpan.Zero;
 
         public event PropertyChangedEventHandler? PropertyChanged;

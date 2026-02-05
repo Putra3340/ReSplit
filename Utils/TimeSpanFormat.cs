@@ -22,7 +22,7 @@ namespace ReSplit.Utils
         public static string FormatNewTime(TimeSpan t)
         {
             if (t.TotalSeconds < 1)
-                return "-";
+                return "00:00";
 
             if (t.TotalHours >= 1)
                 return $"{(int)t.TotalHours}:{t.Minutes:00}:{t.Seconds:00}";

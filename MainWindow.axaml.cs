@@ -47,7 +47,7 @@ namespace ReSplit
             if(mi.Header.ToString() == "Pause") CentralControls.Pause();
             if(mi.Header.ToString() == "Skip") CentralControls.SkipSplit();
             if(mi.Header.ToString() == "Undo") CentralControls.UndoSplit();
-            if(mi.Header.ToString() == "Exit") Close();
+            if(mi.Header.ToString() == "Exit") this.Close();
         }
 
         private async Task OpenRunFileAsync()

@@ -3,7 +3,7 @@
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:model="clr-namespace:ReSplit.Models.Form"
-		mc:Ignorable="d" Width="300" Height="650"
+		mc:Ignorable="d" Width="300" Height="450"
 		x:Class="ReSplit.MainWindow"
 		CanResize="False"
 		TransparencyLevelHint="AcrylicBlur"
@@ -15,14 +15,14 @@
 		>
 	<Window.ContextMenu>
 		<ContextMenu>
-			<MenuItem Header="Start" Click="MenuItem_Click"/>
 			<MenuItem Header="Load" Click="MenuItem_Click"/>
 			<MenuItem Header="Split" Click="MenuItem_Click"/>
 			<MenuItem Header="Skip" Click="MenuItem_Click"/>
+			<MenuItem Header="Pause" Click="MenuItem_Click"/>
 			<MenuItem Header="Undo" Click="MenuItem_Click"/>
 			<MenuItem Header="Reset" Click="MenuItem_Click"/>
 			<Separator/>
-			<MenuItem Header="Exit"/>
+			<MenuItem Header="Exit" Click="MenuItem_Click"/>
 		</ContextMenu>
 	</Window.ContextMenu>
 
@@ -110,34 +110,38 @@
 				Text="00:00."
 				FontSize="42"
 				FontWeight="Bold"
-				Foreground="#00FFAA"
+				Foreground="#FFFFFFFF"
 				HorizontalAlignment="Right"
+				VerticalAlignment="Bottom"
 				Margin="0,6"/>
 				<TextBlock
 				x:Name="Lbl_Milliseconds"
 				Grid.Column="1"
 				Text="000"
-				FontSize="42"
+				FontSize="34"
 				FontWeight="Bold"
-				Foreground="#00FFAA"
+				Foreground="#FFFFFFFF"
 				HorizontalAlignment="Left"
+				VerticalAlignment="Bottom"
 				TextAlignment="Left"
 				Margin="0,6"/>
 			</Grid>
 			<Grid VerticalAlignment="Stretch" ColumnDefinitions="Auto,*" Grid.Row="5">
-				<TextBlock Text="Run Prediction"
+				<TextBlock 
+						   Text="Run Prediction"
 						   Foreground="White"
 						   FontSize="16"
 						   FontWeight="Bold"
 						   TextAlignment="Left"/>
 				<TextBlock Grid.Column="1"
+						   x:Name="Lbl_Prediction"
 						   Text="2:67:69"
 						   Foreground="#CCCCCC"
 						   FontSize="16"
 						   FontWeight="Bold"
 						   TextAlignment="Right"/>
 			</Grid>
-			<Grid VerticalAlignment="Stretch" ColumnDefinitions="Auto,*" Grid.Row="6">
+			<Grid VerticalAlignment="Stretch" ColumnDefinitions="Auto,*" Grid.Row="6" IsVisible="False">
 				<TextBlock Text="Best Possible Time"
 						   Foreground="White"
 						   FontSize="16"
@@ -150,7 +154,7 @@
 						   FontWeight="Bold"
 						   TextAlignment="Right"/>
 			</Grid>
-			<Grid VerticalAlignment="Stretch" ColumnDefinitions="*" Grid.Row="7">
+			<Grid VerticalAlignment="Stretch" ColumnDefinitions="*" Grid.Row="7" IsVisible="False">
 				<TextBlock Text="PutraRTX"
 						   Foreground="White"
 						   FontSize="16"
