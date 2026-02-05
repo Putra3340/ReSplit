@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Run version="1.7.0">
+  <GameIcon />
+  <GameName>God of War</GameName>
+  <CategoryName>Platinum</CategoryName>
+  <LayoutPath>
+  </LayoutPath>
+  <Metadata>
+    <Run id="" />
+    <Platform usesEmulator="False">
+    </Platform>
+    <Region>
+    </Region>
+    <Variables />
+  </Metadata>
+  <Offset>00:00:00</Offset>
+  <AttemptCount>6</AttemptCount>
+  <AttemptHistory>
+    <Attempt id="1" started="12/29/2023 01:37:37" isStartedSynced="True" ended="12/29/2023 01:40:23" isEndedSynced="True" />
+    <Attempt id="2" started="12/29/2023 01:40:27" isStartedSynced="True" ended="12/29/2023 06:13:55" isEndedSynced="True">
+      <RealTime>04:33:27.8940005</RealTime>
+    </Attempt>
+    <Attempt id="3" started="01/14/2024 02:00:51" isStartedSynced="True" ended="01/14/2024 02:00:51" isEndedSynced="True" />
+    <Attempt id="4" started="01/14/2024 02:01:46" isStartedSynced="True" ended="01/14/2024 02:25:26" isEndedSynced="True" />
+    <Attempt id="5" started="01/14/2024 02:28:33" isStartedSynced="True" ended="01/14/2024 02:29:12" isEndedSynced="True" />
+    <Attempt id="6" started="01/14/2024 02:29:42" isStartedSynced="True" ended="01/14/2024 05:14:05" isEndedSynced="True">
+      <RealTime>02:44:23.5599204</RealTime>
+    </Attempt>
+  </AttemptHistory>
+  <Segments>
+    <Segment>
+      <Name>Ares</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best">
+          <RealTime>02:04:20.6926570</RealTime>
+        </SplitTime>
+      </SplitTimes>
+      <BestSegmentTime>
+        <RealTime>02:04:20.6926570</RealTime>
+      </BestSegmentTime>
+      <SegmentHistory>
+        <Time id="6">
+          <RealTime>02:04:20.6926570</RealTime>
+        </Time>
+      </SegmentHistory>
+    </Segment>
+    <Segment>
+      <Name>Challenge 10</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best">
+          <RealTime>02:44:23.5599204</RealTime>
+        </SplitTime>
+      </SplitTimes>
+      <BestSegmentTime>
+        <RealTime>00:40:02.8672634</RealTime>
+      </BestSegmentTime>
+      <SegmentHistory>
+        <Time id="6">
+          <RealTime>00:40:02.8672634</RealTime>
+        </Time>
+      </SegmentHistory>
+    </Segment>
+  </Segments>
+  <AutoSplitterSettings />
+</Run>

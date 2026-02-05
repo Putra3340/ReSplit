@@ -1,0 +1,163 @@
+<Window xmlns="https://github.com/avaloniaui"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:model="clr-namespace:ReSplit.Models.Form"
+		mc:Ignorable="d" Width="300" Height="650"
+		x:Class="ReSplit.MainWindow"
+		CanResize="False"
+		TransparencyLevelHint="AcrylicBlur"
+		Background="#FF463F3F"
+		Topmost="True"
+		SystemDecorations="None"
+		Title="ReSplit"
+		PointerPressed="DragWindow"
+		>
+	<Window.ContextMenu>
+		<ContextMenu>
+			<MenuItem Header="Start" Click="MenuItem_Click"/>
+			<MenuItem Header="Load" Click="MenuItem_Click"/>
+			<MenuItem Header="Split" Click="MenuItem_Click"/>
+			<MenuItem Header="Skip" Click="MenuItem_Click"/>
+			<MenuItem Header="Undo" Click="MenuItem_Click"/>
+			<MenuItem Header="Reset" Click="MenuItem_Click"/>
+			<Separator/>
+			<MenuItem Header="Exit"/>
+		</ContextMenu>
+	</Window.ContextMenu>
+
+	<Border
+	CornerRadius="8"
+	BorderBrush="#55FFFFFF"
+	BorderThickness="1"
+	Padding="10">
+
+		<Grid RowDefinitions="Auto,Auto,Auto,*,Auto,Auto,Auto,Auto,Auto">
+
+			<!-- Game Title -->
+			<TextBlock
+			x:Name="Lbl_Title"
+			Text="Game Title"
+			FontSize="16"
+			FontWeight="Bold"
+			Foreground="White"
+			HorizontalAlignment="Center" Margin="0,0,0,3"/>
+			<TextBlock
+			Grid.Row="1"
+			x:Name="Lbl_Category"
+			Text="Game Category"
+			FontSize="16"
+			FontWeight="Bold"
+			Foreground="White"
+			HorizontalAlignment="Center"/>
+			<TextBlock
+			x:Name="Lbl_Platform"
+			Grid.Row="2"
+			Text="Game Platform"
+			FontSize="16"
+			FontWeight="Bold"
+			Foreground="White"
+			HorizontalAlignment="Center"/>
+
+			<!-- Splits -->
+			<ListBox x:Name="Data_SplitList"
+					 Grid.Row="3"
+					 Background="Transparent"
+					 BorderThickness="0"
+					 SelectionMode="Toggle"
+					 ScrollViewer.VerticalScrollBarVisibility="Hidden"
+					 Focusable="False">
+				<ListBox.Styles>
+					<Style Selector="ListBoxItem">
+						<Setter Property="IsHitTestVisible" Value="False"/>
+						<Setter Property="Padding" Value="0"/>
+						<Setter Property="Margin" Value="0,0,0,5"/>
+					</Style>
+				</ListBox.Styles>
+
+				<ListBox.ItemTemplate>
+					<DataTemplate x:DataType="model:SplitsModel">
+						<Grid VerticalAlignment="Stretch" ColumnDefinitions="150,*,Auto" Background="{Binding BackgroundColor}">
+							<TextBlock Text="{Binding F_Name}"
+									   Foreground="White"
+									   FontSize="16"
+									   FontWeight="Bold"
+									   TextAlignment="Left"/>
+							<TextBlock Grid.Column="1"
+									   Text="{Binding F_DeltaTime}"
+									   Foreground="{Binding DeltaForegroundColor}"
+									   FontSize="16"
+									   FontWeight="Bold"
+									   TextAlignment="Right"
+									   Margin="0,0,10,0"/>
+							<TextBlock Grid.Column="2"
+									   Text="{Binding F_Time}"
+									   Foreground="#CCCCCC"
+									   FontSize="16"
+									   FontWeight="Bold"
+									   TextAlignment="Right"/>
+						</Grid>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+
+
+			<!-- Main Timer -->
+			<Grid ColumnDefinitions="*,85" Grid.Row="4">
+				<TextBlock
+				x:Name="Lbl_Timer"
+				Grid.Column="0"
+				Text="00:00."
+				FontSize="42"
+				FontWeight="Bold"
+				Foreground="#00FFAA"
+				HorizontalAlignment="Right"
+				Margin="0,6"/>
+				<TextBlock
+				x:Name="Lbl_Milliseconds"
+				Grid.Column="1"
+				Text="000"
+				FontSize="42"
+				FontWeight="Bold"
+				Foreground="#00FFAA"
+				HorizontalAlignment="Left"
+				TextAlignment="Left"
+				Margin="0,6"/>
+			</Grid>
+			<Grid VerticalAlignment="Stretch" ColumnDefinitions="Auto,*" Grid.Row="5">
+				<TextBlock Text="Run Prediction"
+						   Foreground="White"
+						   FontSize="16"
+						   FontWeight="Bold"
+						   TextAlignment="Left"/>
+				<TextBlock Grid.Column="1"
+						   Text="2:67:69"
+						   Foreground="#CCCCCC"
+						   FontSize="16"
+						   FontWeight="Bold"
+						   TextAlignment="Right"/>
+			</Grid>
+			<Grid VerticalAlignment="Stretch" ColumnDefinitions="Auto,*" Grid.Row="6">
+				<TextBlock Text="Best Possible Time"
+						   Foreground="White"
+						   FontSize="16"
+						   FontWeight="Bold"
+						   TextAlignment="Left"/>
+				<TextBlock Grid.Column="1"
+						   Text="2:67:69"
+						   Foreground="#CCCCCC"
+						   FontSize="16"
+						   FontWeight="Bold"
+						   TextAlignment="Right"/>
+			</Grid>
+			<Grid VerticalAlignment="Stretch" ColumnDefinitions="*" Grid.Row="7">
+				<TextBlock Text="PutraRTX"
+						   Foreground="White"
+						   FontSize="16"
+						   FontWeight="Bold"
+						   TextAlignment="Center"/>
+			</Grid>
+
+		</Grid>
+	</Border>
+</Window>
