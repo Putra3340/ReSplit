@@ -3,6 +3,7 @@ using Avalonia.Platform.Storage;
 using Avalonia.Threading;
 using ReSplit.Models;
 using ReSplit.Models.Form;
+using ReSplit.Plugins;
 using ReSplit.Utils;
 using System;
 using System.Diagnostics;
@@ -43,11 +44,17 @@ namespace ReSplit
             if (sender is not MenuItem mi) return;
             if (mi.Header.ToString() == "Load") OpenRunFileAsync();
             if(mi.Header.ToString() == "Split") CentralControls.StartNewAttempt();
+            if(mi.Header.ToString() == "Create Segment")
+            {
+                CreateSegmentWindow cs = new();
+                cs.ShowDialog(this);
+            }
             if(mi.Header.ToString() == "Reset") CentralControls.ResetRun();
             if(mi.Header.ToString() == "Pause") CentralControls.Pause();
             if(mi.Header.ToString() == "Skip") CentralControls.SkipSplit();
             if(mi.Header.ToString() == "Undo") CentralControls.UndoSplit();
             if(mi.Header.ToString() == "Exit") this.Close();
+            if (mi.Header.ToString() == "Load DLL") DllLoader.LoadAndInitialize(this);
         }
 
         private async Task OpenRunFileAsync()

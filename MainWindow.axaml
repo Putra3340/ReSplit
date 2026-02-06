@@ -16,7 +16,9 @@
 	<Window.ContextMenu>
 		<ContextMenu>
 			<MenuItem Header="Load" Click="MenuItem_Click"/>
+			<MenuItem Header="Load DLL" Click="MenuItem_Click"/>
 			<MenuItem Header="Split" Click="MenuItem_Click"/>
+			<MenuItem Header="Create Segment" Click="MenuItem_Click"/>
 			<MenuItem Header="Skip" Click="MenuItem_Click"/>
 			<MenuItem Header="Pause" Click="MenuItem_Click"/>
 			<MenuItem Header="Undo" Click="MenuItem_Click"/>
@@ -32,7 +34,7 @@
 	BorderThickness="1"
 	Padding="10">
 
-		<Grid RowDefinitions="Auto,Auto,Auto,*,Auto,Auto,Auto,Auto,Auto">
+		<Grid RowDefinitions="Auto,Auto,Auto,*,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
 
 			<!-- Game Title -->
 			<TextBlock
@@ -127,12 +129,12 @@
 				Margin="0,6"/>
 			</Grid>
 			<Grid VerticalAlignment="Stretch" ColumnDefinitions="Auto,*" Grid.Row="5">
-				<TextBlock 
-						   Text="Run Prediction"
-						   Foreground="White"
-						   FontSize="16"
-						   FontWeight="Bold"
-						   TextAlignment="Left"/>
+				<TextBlock
+				Text="Run Prediction"
+				Foreground="White"
+				FontSize="16"
+				FontWeight="Bold"
+				TextAlignment="Left"/>
 				<TextBlock Grid.Column="1"
 						   x:Name="Lbl_Prediction"
 						   Text="2:67:69"
@@ -154,14 +156,38 @@
 						   FontWeight="Bold"
 						   TextAlignment="Right"/>
 			</Grid>
-			<Grid VerticalAlignment="Stretch" ColumnDefinitions="*" Grid.Row="7" IsVisible="False">
-				<TextBlock Text="PutraRTX"
+			<Grid VerticalAlignment="Stretch" ColumnDefinitions="Auto,*" Grid.Row="7">
+				<TextBlock Text="In Game Time"
+						   Foreground="White"
+						   FontSize="16"
+						   FontWeight="Bold"
+						   TextAlignment="Left"/>
+				<TextBlock Grid.Column="1"
+						   x:Name="Lbl_IGT"
+						   Text="2:67:69"
+						   Foreground="#CCCCCC"
+						   FontSize="16"
+						   FontWeight="Bold"
+						   TextAlignment="Right"/>
+			</Grid>
+						<Grid VerticalAlignment="Stretch" ColumnDefinitions="*" Grid.Row="8">
+				<TextBlock Text="by Putra3340"
 						   Foreground="White"
 						   FontSize="16"
 						   FontWeight="Bold"
 						   TextAlignment="Center"/>
 			</Grid>
-
+			<Grid VerticalAlignment="Stretch" ColumnDefinitions="*" Grid.Row="9">
+				<TextBlock Text="WAD1:Athn01B WAD2:Athn01C CAM1:enc1GrabCam CAM2:HydCmbtCam1"
+						   x:Name="Lbl_Status"
+						   Foreground="White"
+						   FontSize="16"
+						   FontWeight="Bold"
+						   TextAlignment="Justify"
+						   TextWrapping="Wrap"
+						   />
+			</Grid>
+			
 		</Grid>
 	</Border>
 </Window>

@@ -6,6 +6,11 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
   </PropertyGroup>
+  <PropertyGroup Label="Avalonia">
+    <AvaloniaXamlIlDebuggerLaunch>False</AvaloniaXamlIlDebuggerLaunch>
+    <AvaloniaXamlVerboseExceptions>False</AvaloniaXamlVerboseExceptions>
+    <AvaloniaXamlReportImportance>Low</AvaloniaXamlReportImportance>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.3.11" />
@@ -18,5 +23,12 @@
       <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
     </PackageReference>
     <PackageReference Include="SharpHook" Version="7.1.1" />
+    <PackageReference Include="Z.Expressions.Eval" Version="6.3.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="CreateSegmentWIndow.axaml.cs">
+      <DependentUpon>CreateSegmentWIndow.axaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

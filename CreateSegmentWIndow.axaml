@@ -1,0 +1,36 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+                Width="400"
+        Height="220"
+        x:Class="ReSplit.CreateSegmentWindow"
+        Title="Window1">
+  <StackPanel Margin="16" Spacing="10">
+        <!-- Segment Name -->
+        <TextBlock Text="Segment Name" />
+        <TextBox Name="SegmentNameBox"
+                 Watermark="Enter segment name..." />
+
+        <!-- Screenshot -->
+        <TextBlock Text="Screenshot" Margin="0,8,0,0"/>
+        <StackPanel Orientation="Horizontal" Spacing="8">
+            <TextBox Name="ScreenshotPathBox"
+                     IsReadOnly="True"
+                     Width="260"
+                     Watermark="No file selected" />
+            <Button Content="Browse"
+                    Click="OnBrowseScreenshot"/>
+        </StackPanel>
+
+        <!-- Actions -->
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,12,0,0"
+                    Spacing="8">
+            <Button Content="Cancel" />
+            <Button Content="Create" IsDefault="True"  Click="OnCreate"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
