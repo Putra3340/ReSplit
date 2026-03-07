@@ -1,5 +1,7 @@
-﻿using System;
-using Avalonia;
+﻿using Avalonia;
+using Avalonia.WebView.Desktop;
+using AvaloniaWebView;
+using System;
 
 namespace ReSplit
 {
@@ -17,6 +19,15 @@ namespace ReSplit
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
                 .WithInterFont()
+            .AfterSetup(_ =>
+            {
+                AvaloniaWebViewBuilder.Initialize(config =>
+                {
+                    config.UserDataFolder = "webview-data";
+                    config.AreDevToolEnabled = true;
+                });
+            })
+            .UseDesktopWebView()
                 .LogToTrace();
     }
 }

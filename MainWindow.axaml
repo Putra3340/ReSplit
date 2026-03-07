@@ -3,7 +3,8 @@
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:model="clr-namespace:ReSplit.Models.Form"
-		mc:Ignorable="d" Width="300" Height="450"
+		xmlns:awv="clr-namespace:AvaloniaWebView;assembly=AvaloniaWebView"
+		mc:Ignorable="d" Width="300" Height="850"
 		x:Class="ReSplit.MainWindow"
 		CanResize="False"
 		TransparencyLevelHint="AcrylicBlur"
@@ -34,7 +35,7 @@
 	BorderThickness="1"
 	Padding="10">
 
-		<Grid RowDefinitions="Auto,Auto,Auto,*,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+		<Grid RowDefinitions="Auto,Auto,Auto,*,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
 
 			<!-- Game Title -->
 			<TextBlock
@@ -170,7 +171,7 @@
 						   FontWeight="Bold"
 						   TextAlignment="Right"/>
 			</Grid>
-						<Grid VerticalAlignment="Stretch" ColumnDefinitions="*" Grid.Row="8">
+			<Grid VerticalAlignment="Stretch" ColumnDefinitions="*" Grid.Row="8">
 				<TextBlock Text="by Putra3340"
 						   Foreground="White"
 						   FontSize="16"
@@ -187,7 +188,7 @@
 						   TextWrapping="Wrap"
 						   />
 			</Grid>
-			
 		</Grid>
+
 	</Border>
 </Window>

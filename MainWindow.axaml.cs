@@ -54,7 +54,7 @@ namespace ReSplit
             if(mi.Header.ToString() == "Skip") CentralControls.SkipSplit();
             if(mi.Header.ToString() == "Undo") CentralControls.UndoSplit();
             if(mi.Header.ToString() == "Exit") this.Close();
-            if (mi.Header.ToString() == "Load DLL") DllLoader.LoadAndInitialize(this);
+            if (mi.Header.ToString() == "Load DLL") PluginLoader.LoadAndInitialize(this);
         }
 
         private async Task OpenRunFileAsync()

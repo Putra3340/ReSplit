@@ -1,4 +1,6 @@
 <Solution>
-  <Project Path="../ReSplitPlugins/ReSplitPlugins.csproj" Id="20b5094d-0748-4f1c-a4a8-8ee9fb60cdde" />
+  <Folder Name="/ResplitPlugins/">
+    <Project Path="Plugins/ResplitPlugins/LiveGuide/LiveGuide.csproj" Id="5a78e2f8-9f0d-42b5-82da-c30dfceb8c69" />
+  </Folder>
   <Project Path="ReSplit.csproj" />
 </Solution>
