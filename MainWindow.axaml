@@ -3,8 +3,9 @@
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:model="clr-namespace:ReSplit.Models.Form"
+		xmlns:binding="clr-namespace:ReSplit.Models"
 		xmlns:awv="clr-namespace:AvaloniaWebView;assembly=AvaloniaWebView"
-		mc:Ignorable="d" Width="300" Height="850"
+		mc:Ignorable="d" Width="325" Height="700"
 		x:Class="ReSplit.MainWindow"
 		CanResize="False"
 		TransparencyLevelHint="AcrylicBlur"
@@ -60,7 +61,7 @@
 			FontSize="16"
 			FontWeight="Bold"
 			Foreground="White"
-			HorizontalAlignment="Center"/>
+			HorizontalAlignment="Center" Margin="0,0,0,10"/>
 
 			<!-- Splits -->
 			<ListBox x:Name="Data_SplitList"
@@ -69,7 +70,7 @@
 					 BorderThickness="0"
 					 SelectionMode="Toggle"
 					 ScrollViewer.VerticalScrollBarVisibility="Hidden"
-					 Focusable="False">
+					 Focusable="False" ItemsSource="{x:Static binding:StaticBinding.Splits}">
 				<ListBox.Styles>
 					<Style Selector="ListBoxItem">
 						<Setter Property="IsHitTestVisible" Value="False"/>
@@ -80,7 +81,7 @@
 
 				<ListBox.ItemTemplate>
 					<DataTemplate x:DataType="model:SplitsModel">
-						<Grid VerticalAlignment="Stretch" ColumnDefinitions="150,*,Auto" Background="{Binding BackgroundColor}">
+						<Grid VerticalAlignment="Stretch" ColumnDefinitions="*,75,75" Background="{Binding F_BackgroundColor}">
 							<TextBlock Text="{Binding F_Name}"
 									   Foreground="White"
 									   FontSize="16"
@@ -179,12 +180,12 @@
 						   TextAlignment="Center"/>
 			</Grid>
 			<Grid VerticalAlignment="Stretch" ColumnDefinitions="*" Grid.Row="9">
-				<TextBlock Text="WAD1:Athn01B WAD2:Athn01C CAM1:enc1GrabCam CAM2:HydCmbtCam1"
+				<TextBlock Text="Debug Info"
 						   x:Name="Lbl_Status"
 						   Foreground="White"
 						   FontSize="16"
 						   FontWeight="Bold"
-						   TextAlignment="Justify"
+						   TextAlignment="Center"
 						   TextWrapping="Wrap"
 						   />
 			</Grid>

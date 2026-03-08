@@ -29,9 +29,6 @@
       <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
     </PackageReference>
     <PackageReference Include="SharpHook" Version="7.1.1" />
-    <PackageReference Include="WebView.Avalonia" Version="11.0.0.1" />
-    <PackageReference Include="WebView.Avalonia.Desktop" Version="11.0.0.1" />
-    <PackageReference Include="Z.Expressions.Eval" Version="6.3.6" />
   </ItemGroup>
 
   <ItemGroup>

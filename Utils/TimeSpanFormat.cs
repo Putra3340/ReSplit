@@ -8,6 +8,8 @@ namespace ReSplit.Utils
     {
         public static string FormatDelta(TimeSpan delta)
         {
+            if (delta == TimeSpan.MinValue) return "-";
+            if (delta == TimeSpan.MaxValue) return "";
             var sign = delta < TimeSpan.Zero ? "-" : "+";
             delta = delta.Duration(); // absolute value
 
@@ -21,13 +23,14 @@ namespace ReSplit.Utils
         }
         public static string FormatNewTime(TimeSpan t)
         {
+            if(t == TimeSpan.MinValue) return "-";
             if (t.TotalSeconds < 1)
                 return "00:00";
 
             if (t.TotalHours >= 1)
-                return $"{(int)t.TotalHours}:{t.Minutes:00}:{t.Seconds:00}";
+                return $"{(int)t.TotalHours}:{t.Minutes:D2}:{t.Seconds:D2}";
 
-            return $"{t.Minutes}:{t.Seconds:00}";
+            return $"{t.Minutes:D2}:{t.Seconds:D2}";
         }
     }
 }

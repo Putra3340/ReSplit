@@ -20,7 +20,7 @@ namespace ReSplit.Plugins
     public interface IReSplitHost
     {
         ObservableCollection<SplitsModel> Splits { get; }
-        string DllPath { get; }
+        string IdentifierPath { get; }
         void SetStatus(string text);
         void UpdateIGT(TimeSpan value);
         void StartOrSplit();
@@ -37,11 +37,12 @@ namespace ReSplit.Plugins
         }
         public ObservableCollection<SplitsModel> Splits => StaticBinding.Splits;
 
-        string IReSplitHost.DllPath => DllPath;
+
+        string IReSplitHost.IdentifierPath => DllPath;
 
         public void Reset()
         {
-            CentralControls.ResetRun();
+            //CentralControls.ResetRun();
         }
 
         public void SetStatus(string text)

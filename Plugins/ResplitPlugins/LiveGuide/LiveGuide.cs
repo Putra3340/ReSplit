@@ -16,7 +16,7 @@ namespace LiveGuide
         public static void Initialize(IReSplitHost host)
         {
             Host = host;
-            DllPath = host.DllPath;
+            DllPath = host.IdentifierPath;
             Dispatcher.UIThread.Post(() =>
             {
                 if (MainWindow == null)

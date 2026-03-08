@@ -43,17 +43,17 @@ namespace ReSplit
         {
             if (sender is not MenuItem mi) return;
             if (mi.Header.ToString() == "Load") OpenRunFileAsync();
-            if(mi.Header.ToString() == "Split") CentralControls.StartNewAttempt();
-            if(mi.Header.ToString() == "Create Segment")
+            if (mi.Header.ToString() == "Split") CentralControls.StartNewAttempt();
+            if (mi.Header.ToString() == "Create Segment")
             {
                 CreateSegmentWindow cs = new();
                 cs.ShowDialog(this);
             }
-            if(mi.Header.ToString() == "Reset") CentralControls.ResetRun();
-            if(mi.Header.ToString() == "Pause") CentralControls.Pause();
-            if(mi.Header.ToString() == "Skip") CentralControls.SkipSplit();
-            if(mi.Header.ToString() == "Undo") CentralControls.UndoSplit();
-            if(mi.Header.ToString() == "Exit") this.Close();
+            if (mi.Header.ToString() == "Reset") CentralControls.ResetRun();
+            if (mi.Header.ToString() == "Pause") CentralControls.Pause();
+            if (mi.Header.ToString() == "Skip") CentralControls.SkipSplit();
+            if (mi.Header.ToString() == "Undo") CentralControls.UndoSplit();
+            if (mi.Header.ToString() == "Exit") this.Close();
             if (mi.Header.ToString() == "Load DLL") PluginLoader.LoadAndInitialize(this);
         }
 
@@ -79,30 +79,9 @@ namespace ReSplit
             if (files.Count > 0)
             {
                 var path = files[0].Path.LocalPath;
-                SetupLoad(path);
+                CentralControls.SetupLoad(path);
             }
         }
-        private void SetupLoad(string splitPath)
-        {
-            StaticBinding.CurrentRun = RunSerializer.Load(splitPath);
-            StaticBinding.Splits.Clear();
-            Lbl_Title.Text = StaticBinding.CurrentRun.GameName ?? "Untitled Run";
-            Lbl_Category.Text = StaticBinding.CurrentRun.CategoryName ?? "No Category";
-            Lbl_Platform.Text = StaticBinding.CurrentRun.Platform ?? "No Platform";
-            foreach (var split in StaticBinding.CurrentRun.Segments)
-            {
-                TimeSpan t = TimeSpan.TryParse(split.SplitTimes.Last().RealTime,out var a) ? a : TimeSpan.Zero;
-                string time = t.TotalHours >= 1
-                ? $"{(int)t.TotalHours}:{t.Minutes:00}:{t.Seconds:00}"
-                    : t.TotalMinutes >= 1
-                        ? $"{t.Minutes:00}:{t.Seconds:00}"
-                            : t.TotalSeconds < 1
-                                ? "-"
-                                    : $"{t.Seconds}";
-
-                StaticBinding.Splits.Add(new SplitsModel { F_Name = split.Name, F_Time = time, Time = t});
-            }
-            StaticBinding.Splits[0].IsActive = true;
-        }
+        
     }
 }

@@ -28,6 +28,7 @@ namespace ReSplit.Models
 
     public class Segment
     {
+        public string? Id { get; set; }
         public string Name { get; set; }
 
         [XmlArray("SplitTimes")]
