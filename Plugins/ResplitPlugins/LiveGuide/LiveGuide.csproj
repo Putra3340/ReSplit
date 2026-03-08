@@ -17,7 +17,18 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="mkdir &quot;$(ProjectDir)..\..\..\..\ReSplit\bin\$(Configuration)\net10.0\Plugins\&quot; 2&gt;nul&#xD;&#xA;copy /Y &quot;$(TargetDir)$(TargetName).*&quot; &quot;$(ProjectDir)..\..\..\..\ReSplit\bin\$(Configuration)\net10.0\Plugins\&quot;" />
+    <PropertyGroup>
+      <PluginOutputDir>$(ProjectDir)../../../../ReSplit/bin/$(Configuration)/net10.0/Plugins/</PluginOutputDir>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <BuiltFiles Include="$(TargetDir)$(TargetName).*" />
+    </ItemGroup>
+
+    <MakeDir Directories="$(PluginOutputDir)" />
+    <Copy SourceFiles="@(BuiltFiles)"
+          DestinationFolder="$(PluginOutputDir)"
+          SkipUnchangedFiles="true" />
   </Target>
 
 </Project>
