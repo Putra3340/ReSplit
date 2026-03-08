@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="copy /Y &quot;$(TargetDir)$(TargetName).*&quot; &quot;$(ProjectDir)..\..\..\..\ReSplit\bin\$(Configuration)\net10.0\&quot;" />
+    <Exec Command="mkdir &quot;$(ProjectDir)..\..\..\..\ReSplit\bin\$(Configuration)\net10.0\Plugins\&quot; 2&gt;nul&#xD;&#xA;copy /Y &quot;$(TargetDir)$(TargetName).*&quot; &quot;$(ProjectDir)..\..\..\..\ReSplit\bin\$(Configuration)\net10.0\Plugins\&quot;" />
   </Target>
 
 </Project>

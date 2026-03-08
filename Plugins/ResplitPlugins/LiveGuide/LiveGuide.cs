@@ -1,6 +1,7 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Threading;
 using ReSplit.Plugins;
+using System.Collections.ObjectModel;
 using System.Reflection;
 
 namespace LiveGuide
@@ -11,12 +12,15 @@ namespace LiveGuide
         public static string Name => "Live Guide";
         public static string Description => "Live Guide Plugin";
         public static string DllPath = string.Empty;
+
         public static MainWindow? MainWindow;
-        public static SettingsWindow? SettingsWindow;
         public static void Initialize(IReSplitHost host)
         {
             Host = host;
             DllPath = host.IdentifierPath;
+
+            // You can perform any necessary initialization here, such as setting up event handlers or preparing resources.
+            // For example, this plugin gonna create a simple window that displays the current splits and allows the user to interact with them.
             Dispatcher.UIThread.Post(() =>
             {
                 if (MainWindow == null)
@@ -40,7 +44,6 @@ namespace LiveGuide
             Dispatcher.UIThread.Post(() =>
             {
                 MainWindow?.Close();
-                SettingsWindow?.Close();
             });
             Host?.Shutdown(DllPath);
         }

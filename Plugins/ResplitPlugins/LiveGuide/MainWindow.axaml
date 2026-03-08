@@ -1,9 +1,24 @@
 <Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="LiveGuide.MainWindow"
-        Title="MainWindow">
-  Welcome to Avalonia!
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:data="clr-namespace:LiveGuide"
+		mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+		x:Class="LiveGuide.MainWindow"
+		Title="MainWindow">
+	<Grid ColumnDefinitions="*,Auto">
+		<TextBox x:Name="Lbl_Guide" Text="Hello, World!" TextAlignment="Left" TextWrapping="WrapWithOverflow" FontSize="24" KeyDown="Lbl_Guide_KeyDown"/>
+		<StackPanel Grid.Column="1" Margin="10" Spacing="10" Orientation="Vertical">
+			<Button Content="Import From Segments" Click="ImportSegments_Click"/>
+			<Button Content="Import From ReSplitGuide" Click="ImportGuide_Click"/>
+			<Button Content="Save to File" Click="SaveGuide_Click"/>
+			<ListBox x:Name="List_Segments" SelectionChanged="List_Segments_SelectionChanged" ItemsSource="{x:Static data:MainWindow.GuideList}">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding Name}" FontSize="16"/>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</StackPanel>
+	</Grid>
 </Window>

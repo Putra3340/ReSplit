@@ -370,18 +370,31 @@ To create a ReSplit plugin:
 public class MyPlugin
 {
     // Required properties
+    public static IReSplitHost? Host;
     public static string Name => "My Plugin";
     public static string Description => "Description of my plugin";
+    public static string DllPath = string.Empty; // This will be set by the loader for identification
 
     // Required entry point
     public static void Initialize(IReSplitHost host)
     {
+        // This is necessary for the plugin to receive the host reference and be properly identified by the loader.
+        Host = host;
+        DllPath = host.IdentifierPath;
+
+        // Your plugin logic here. You can interact with the host via the IReSplitHost interface:
         // host.Splits        — access the splits collection
         // host.SetStatus()   — update status text
         // host.UpdateIGT()   — update in-game time
         // host.StartOrSplit() — trigger split
         // host.Reset()       — reset the run
         // host.Shutdown()    — request unload
+    }
+
+    // Required shutdown method to allow the plugin to request unloading itself
+    public static void Shutdown()
+    {
+        Host?.Shutdown(DllPath);
     }
 }
 ```
